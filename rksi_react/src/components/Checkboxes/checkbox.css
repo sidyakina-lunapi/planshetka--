@@ -1,0 +1,46 @@
+
+.checkmark-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.checkmark-container:hover {
+  transform: scale(1.1);
+}
+
+.state-0 {
+  animation: pulseRed 0.3s ease;
+}
+
+.state-1 {
+  animation: pulseYellow 0.3s ease;
+}
+
+.state-2 {
+  animation: pulseGreen 0.3s ease;
+}
+
+@keyframes pulseRed {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulseYellow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}

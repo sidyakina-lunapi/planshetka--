@@ -1,0 +1,104 @@
+
+.pages_nav {
+    display: flex;
+}
+
+.pages_nav_item {
+    margin-right: 0vw;
+}
+
+.pages_nav_item_search {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    margin-right: 2vw;
+    color: #A4A4A4;
+}
+
+.replacements-box {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.replacement-page {
+  display: flex;
+  flex-direction: column;
+  display: grid;
+}
+
+.create-replacement-section {
+  order: 1;
+}
+
+.pages_nav {
+  order: 2;
+}
+
+.replacements-box {
+  order: 3;
+}
+
+.pairs-row {
+  display: grid;
+  grid-template-columns: 0.5fr 0.3fr;
+  margin-bottom: 20px;
+  gap: 1vw;
+}
+
+.pair-item {
+  width: 100%;
+}
+
+.pages_nav{
+  margin-top: 2vh;
+  margin-left: 2vw;
+  margin-bottom: 2vh;
+}
+.pages_nav_teachers {
+  margin-top: 2vh;
+  margin-left: 2vw;
+}
+
+.pages_nav_item {
+  margin-top: 1vh;
+}
+
+.button-box {
+  margin-left: 2vw;
+}
+
+.create-replacement-section {
+  padding-top: 3vh;
+  padding-left: 2vw;
+}
+
+.sheldule-cards-container {
+  display: grid;
+  width: 95%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.schedule-page-container {
+  width: 100%;
+}
+
+.date-block {
+  width: 95%;
+  margin-left: 2.5%;
+  border-radius: 18px;
+  display: grid;
+  justify-items: center;
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+.pair-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+

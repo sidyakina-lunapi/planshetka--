@@ -1,0 +1,94 @@
+.schedule-table {
+  margin-top: 2vh;
+  margin-left: 2vw;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  color: #404040;
+  table-layout: fixed; 
+   background-color: white;
+}
+
+.schedule-table table {
+  width: 100%; 
+  table-layout: fixed; 
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 2vh 0vw 2vh 1vw;
+  text-align: left;
+  font-size: 1vw;
+  text-align: center;
+}
+
+
+
+.schedule-table th {
+  font-weight: 600;
+  background-color: #E4ECFF;
+}
+
+.schedule-table th:last-child {
+ border-bottom-right-radius: 18px;
+}
+
+.schedule-table th:first-child {
+ border-top-left-radius: 18px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center; 
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+  background: #fdf9e3;
+}
+
+.delete-btn:hover {
+  background: #ffdee3;
+}
+
+.edit-btn img,
+.delete-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.schedule-table select {
+  display: block;
+  width: 100%;
+  color: #404040;
+  padding: 2px 10px 2px 2px;
+  border: 2px solid #e0e0e0;
+  border-radius: 18px;
+  font-size: 1.1vw; 
+  background: white;
+  box-sizing: border-box; 
+  text-align: center;
+}
+
+.schedule-table select option {
+  text-align: center;
+}
+.schedule-table select:focus {
+  border-color: #BFD1FF;
+}
+
+
+.schedule-table input:focus {
+  outline: none;
+  border-color: #BFD1FF;
+}

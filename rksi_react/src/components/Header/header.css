@@ -1,0 +1,54 @@
+.header {
+    padding-top: 18vh;
+    padding-left: 2vw;
+}
+
+.header-title {
+    margin: 0;
+    color: #404040;
+    font-size: 3.6vw;
+    font-weight: bold;
+}
+
+.date-header {
+  padding: 12px;
+  text-align: center; 
+}
+
+.date-title {
+  font-size: 1vw;
+  font-weight: 600;
+  color: #5C6C9F;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  z-index: 2;
+}
+
+.date-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E4ECFF;
+  border-radius: 50px;
+  z-index: -1;
+}
+
+.pair-number {
+  text-align: center;
+  font-weight: 600;
+  color: #404040;
+  font-size: 1.8vw;
+}
+
+.pair-time {
+  text-align: right;
+  padding-right: 2.5vw;
+  color: #9C9C9C;
+  font-size: 1.4vw;
+}

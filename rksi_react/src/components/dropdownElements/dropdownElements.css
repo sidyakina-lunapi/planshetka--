@@ -1,0 +1,156 @@
+.filter-with-dropdown {
+  margin-bottom: 10px;
+  min-width: 200px;
+}
+
+.filter-item { 
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.filter-item:first-child { 
+  padding-top: 5px;
+}
+
+.filter-text {
+  font-weight: 900;
+  color: #404040;
+  padding-bottom: 4px;
+  margin-left: 8px;
+}
+
+.filter-dropdown-container {
+  margin-top: 5px;
+}
+
+.custom-dropdown__header {
+  padding: 5px;
+  width: 87%;
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #FAFAFA;
+  color: #A4A4A4;
+}
+
+.custom-dropdown__header::placeholder {
+  color: #A4A4A4;
+}
+
+.date-dropdown-content {
+  width: 100%;
+}
+
+.date-input-container {
+  position: relative;
+  width: 87%;
+  margin-left: 2%;
+}
+
+.date-input {
+  padding-right: 30px !important;
+  cursor: pointer;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.date-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.date-input::-webkit-clear-button {
+  display: none;
+}
+
+.calendar-icon-wrapper {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.date-divider {
+  height: 1px;
+  background: #E0E0E0;
+  margin: 8px 2%;
+  width: 87%;
+}
+
+.recent-dates-section {
+  padding: 5px 2%;
+  width: 87%;
+}
+
+.recent-dates-title {
+  font-size: 12px;
+  color: #A4A4A4;
+  padding: 5px 0;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.recent-date-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #404040;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  margin-bottom: 4px;
+}
+
+.recent-date-item:hover {
+  background: #F5F5F5;
+}
+
+.selected-date-display {
+  margin: 8px 2%;
+  padding: 8px 12px;
+  background: #e7f3ff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #404040;
+  width: 87%;
+}
+
+.checkbox-dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+.checkbox-dropdown-item {
+  display: flex;
+  align-items: center;
+  margin: 6px 15px 6px 9px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 13px;
+  color: #404040;
+}
+
+.checkbox-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.teachers-list {
+  width: 140px;
+  padding: 8px 0;
+}
+
+.teacher-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #404040;
+  transition: background-color 0.2s;
+}
+
+.teacher-option:hover {
+  background-color: #f5f5f5;
+}
