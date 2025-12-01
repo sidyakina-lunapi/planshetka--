@@ -47,3 +47,21 @@
   justify-self: end;
   grid-column: 3; 
 }
+
+.schedule-data-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: Onest;
+  font-size: 14px;
+  gap:12px;
+}
+
+
+.schedule-data-preview:last-child {
+  margin-bottom: 20px;
+}
+
+.schedule-data-preview img {
+  padding-right: 5px;
+  width: 30px;
+}

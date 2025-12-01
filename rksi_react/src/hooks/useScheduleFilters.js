@@ -60,11 +60,11 @@ export const useScheduleFilters = (scheduleData) => {
       result = result.filter(item => item.date === filters.date);
     }
 
-     if (filters.showEmpty) {
-    result = result.filter(item => 
-      item.discipline || item.lastName || item.group
-    );
-  }
+    if (filters.showEmpty) {
+      result = result.filter(item => 
+        item.discipline || item.lastName || item.group
+      );
+    }
 
     return result.sort((a, b) => {
       const [dayA, monthA, yearA] = a.date.split('.').map(Number);

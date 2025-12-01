@@ -19,7 +19,8 @@ const ShelduleCard = ({
     Группа: true,
     Преподаватель: true,
     Мероприятие: true
-  }
+  },
+  onClick
 }) => {
 
   const hasBuilding = building && building !== '000' && visibleFields['Место'];
@@ -45,12 +46,17 @@ const ShelduleCard = ({
   const hasAllData = building && building !== '000' && 
                     group && group !== 'Группа' && 
                     roomNumber && roomNumber !== '000' && 
-                    lastName && lastName !== 'Фамилия';
+                    lastName && lastName !== 'Фамилия' && 
+                    (discipline && discipline !== 'Дисциплина' || reason);
   
   const cardClass = `sheldule-card ${!hasAllData ? 'sheldule-card-incomplete' : ''}`;
 
   return (
-    <div className={cardClass}>
+    <div 
+      className={cardClass}
+      onClick={onClick}
+      style={{ cursor: onClick ? 'pointer' : 'default' }}
+    >
       {hasBuilding && (
         <div className='sheldule-card-box'>
           <img src="/images/building.svg" alt="Корпус" className='sheldule-card-icon'/>
@@ -94,6 +100,26 @@ const ShelduleCard = ({
       ) : null}
     </div>
   );
+};
+
+ShelduleCard.defaultProps = {
+  building: 1,
+  roomNumber: '',
+  discipline: '',
+  lastName: '',
+  group: '',
+  date: '',
+  reason: '',
+  status: 0, 
+  pair: 1,
+  visibleFields: {
+    Место: true,
+    Аудитория: true,
+    Дисциплина: true,
+    Группа: true,
+    Преподаватель: true,
+    Мероприятие: true
+  }
 };
 
 export default ShelduleCard;

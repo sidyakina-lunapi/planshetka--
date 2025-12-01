@@ -1,20 +1,29 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ButtonNav, { DawIcon, StarIcon, FilterIcon, PensilIcon } from "../components/Buttons/buttonNav"; 
 import '../styles/pages.css';
 import ShelduleCard from '../components/Cards/ShelduleCard';
-import { useDisplayFields } from '../hooks/useDisplayFields';
 import { scheduleData } from '../data/scheduleData';
 import FilterText from '../components/dropdownElements/FilterText';
 import DateFilter from '../components/dropdownElements/DateFilter';
 import CheckboxDropdownContent from '../components/dropdownElements/CheckboxDropdownContent';
 import { useScheduleFilters } from '../hooks/useScheduleFilters';
+import { useDisplayFields } from '../hooks/useDisplayFields';
 import { commonOptions, teacherOptions, disciplineOptions, groupOptions, eventOptions } from '../data/commonData';
 import DateHeader from '../components/Header/DateHeader';
 import PairHeader from '../components/Header/PairHeader';
+import { useReplacement } from '../context/ReplacementContext';
 
 export default function Shedule() {
   const { filters, updateFilter, filteredData, availableDates } = useScheduleFilters(scheduleData);
   const { visibleFields, updateVisibleFields } = useDisplayFields();
+  const { openReplacementModal } = useReplacement();
+  const navigate = useNavigate();
+
+  const handleCardClick = (item) => {
+    console.log('Card clicked in Shedule:', item);
+    openReplacementModal(item);
+    navigate('/replacements');
+  };
 
   const groupedByDate = filteredData.reduce((acc, item) => {
     const date = item.date;
@@ -110,12 +119,14 @@ export default function Shedule() {
                   <DateFilter 
                     value={filters.date}
                     onChange={(value) => updateFilter('date', value)}
+                    availableDates={availableDates}
                   />
                 }
               />
             </div>
           }
         />
+
         <ButtonNav 
           text="Отображение"
           icon={PensilIcon}
@@ -123,7 +134,7 @@ export default function Shedule() {
           dropdownContent={
             <CheckboxDropdownContent 
               options={['Место', 'Аудитория', 'Дисциплина', 'Группа', 'Преподаватель', 'Мероприятие']}
-               onSelectionChange={updateVisibleFields}
+              onSelectionChange={updateVisibleFields}
             />
           }
         />
@@ -141,7 +152,7 @@ export default function Shedule() {
         />
       </nav>
       
-        <div className="schedule-page-container">
+      <div className="schedule-page-container">
         {sortedDates.map(date => (
           <div key={date} className="date-block">
             <DateHeader date={date} />
@@ -163,8 +174,9 @@ export default function Shedule() {
                         group={item.group}
                         date={item.date}
                         pair={item.pair}
-                        reason={item.reason} 
-                        visibleFields={visibleFields} 
+                        reason={item.reason || item.event}
+                        visibleFields={visibleFields}
+                        onClick={() => handleCardClick(item)}
                       />
                     ))}
                   </div>

@@ -1,18 +1,33 @@
 import React, { useState } from 'react';
 import ButtonNav, { DawIcon, StarIcon, RoundIcon, FilterIcon, SearchIcon } from "../components/Buttons/buttonNav"; 
 import ReplacementButton from '../components/Buttons/ReplacementButton';
+import ScheduleReplacementModal from '../components/Modal/ScheduleReplacementModal';
 import EmptinessCard from '../components/Cards/EmptinessCard';
 import ReplacementCard from '../components/Cards/ReplacementCard';
 import CardPair from '../components/Cards/CardPair';
 import FilterText from '../components/dropdownElements/FilterText';
 import DateFilter from '../components/dropdownElements/DateFilter';
+import { useReplacement } from '../context/ReplacementContext';
 import '../styles/pages.css';
 
-const Replacement = () => {
+const Replacements = () => {
   const [pairs, setPairs] = useState([]);
+  const { 
+    isOpen,
+    scheduleData, 
+    closeReplacementModal
+  } = useReplacement();
+
+  console.log('Replacements render - modal open:', isOpen, 'data:', scheduleData);
 
   const handlePairCreated = (newPair) => {
     setPairs(prev => [...prev, newPair]);
+  };
+
+  const handleSchedulePairCreated = (newPair) => {
+    console.log('New pair created from schedule:', newPair);
+    setPairs(prev => [...prev, newPair]);
+    closeReplacementModal();
   };
 
   const pairChunks = [];
@@ -46,7 +61,7 @@ const Replacement = () => {
                 placeholderText="аудиторию"
               />
               <FilterText 
-                text="группы" 
+                text="Группы" 
                 placeholderText="группу"
               />
               <FilterText 
@@ -60,8 +75,7 @@ const Replacement = () => {
               <FilterText 
                 text="Даты" 
                 customContent={
-                  <DateFilter 
-                  />
+                  <DateFilter />
                 }
               />
               <FilterText 
@@ -97,21 +111,36 @@ const Replacement = () => {
               {chunk.map((pair) => (
                 <div key={pair.id} className="pair-item">
                   <CardPair
-                    firstCard={<EmptinessCard />}
+                    firstCard={
+                      pair.firstCardData ? (
+                        <ReplacementCard {...pair.firstCardData} />
+                      ) : (
+                        <EmptinessCard />
+                      )
+                    }
                     secondCard={<ReplacementCard {...pair.secondCardData} />}
                   />
                 </div>
               ))}
-              {chunk.length < 2 && <div className="pair-item empty"></div>}
+              {chunk.length < 2 && (
+                <div className="pair-item empty"></div>
+              )}
             </div>
           ))
         ) : (
-          <div className="no-pairs-message">
+          <div>
           </div>
         )}
       </div>
+
+      <ScheduleReplacementModal
+        isOpen={isOpen}
+        onClose={closeReplacementModal}
+        scheduleData={scheduleData}
+        onPairCreated={handleSchedulePairCreated}
+      />
     </div>
   );
 };
 
-export default Replacement;
+export default Replacements;
